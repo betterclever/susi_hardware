@@ -72,7 +72,7 @@ decoder = Decoder(config)
 decoder.start_utt()
 
 while True:
-    buf = stream.read(1024)
+    buf = stream.read(1024, exception_on_overflow=False)
     if buf:
         decoder.process_raw(buf, False, False)
     else:
